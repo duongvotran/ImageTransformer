@@ -8,7 +8,7 @@ from __future__ import print_function
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import misc. as utils
+import misc.utils as utils
 
 from .AttModel1 import pack_wrapper, AttModel, Attention
 from .TransformerModel_relative import LayerNorm, attention, attention_d, clones, SublayerConnection, PositionwiseFeedForward

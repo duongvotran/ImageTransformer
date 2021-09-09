@@ -30,12 +30,12 @@ python train_h.py --id $id --refine_aoa $refine_aoa --caption_model $caption_mod
 	--ctx_drop 1 \
 	--dropout_aoa 0.3 \
 	--label_smoothing 0.2 \
-	--input_json data/tmp/4/cocotalk.json \
-	--input_label_h5 data/tmp/4/cocotalk_label.h5 \
-	--input_fc_dir  data/adaptive/cocobu_fc \
-	--input_att_dir  data/adaptive/cocobu_att  \
-	--input_box_dir  data/adaptive/cocobu_box \
-	--input_flag_dir data/tmp/cocobu_flag_h_v1 \
+	--input_json data/uitviic_idx.json \
+	--input_label_h5 data/uitviic_label.h5 \
+	--input_fc_dir  feat/_fc \
+	--input_att_dir  feat/_att  \
+	--input_box_dir  feat/_box \
+	--input_flag_dir feat/flag \
 	--seq_per_img 5 \
 	--batch_size 10 \
 	--beam_size 1 \
@@ -71,12 +71,12 @@ python train_h.py --id $id --refine_aoa $refine_aoa --caption_model $caption_mod
 	 --mean_feats 1 \
 	 --ctx_drop 1 \
 	 --dropout_aoa 0.3 \
-	 --input_json data/tmp/4/cocotalk.json \
-	 --input_label_h5 data/tmp/4/cocotalk_label.h5 \
-	 --input_fc_dir  data/adaptive/cocobu_fc \
-	 --input_att_dir  data/adaptive/cocobu_att  \
-	 --input_box_dir  data/adaptive/cocobu_box \
-	 --input_flag_dir data/tmp/cocobu_flag_h_v1 \
+	 --input_json data/uitviic_idx.json \
+	 --input_label_h5 data/uitviic_label.h5 \
+	 --input_fc_dir  feat/_fc \
+   --input_att_dir  feat/_att  \
+   --input_box_dir  feat/_box \
+   --input_flag_dir feat/flag \
 	 --seq_per_img 5 \
 	 --batch_size 10 \
 	 --beam_size 1 \

@@ -8,7 +8,7 @@ import numpy as np
 
 import time
 from six.moves import cPickle
-import ipdb
+#import ipdb
 
 import models
 import opts
@@ -76,7 +76,7 @@ aoa_num = 3
 append_info = '_new10_new1_37_rl'
 opt.caption_model = 'aoa' + aoa_id
 opt.id = 'h_v' + aoa_id
-opt.input_flag_dir = 'data/tmp/cocobu_flag_h_v1'
+opt.input_flag_dir = 'feat/flag'
 model_ids = ['best_720000']#+list(range(70, 81))
 best_cider = -1
 best_epoch = -1
