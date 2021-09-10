@@ -55,11 +55,11 @@ def compute_iou(bbox):
 # get adjacent matrix of challenging data
 # files = glob.glob('./data/adaptive/test2014/cocobu_box/*.npy')
 # files = glob.glob('./data/adaptive/test2015/cocobu_box/*.npy')
-files = glob.glob('./data/adaptive/cocobu_box/*.npy')
+files = glob.glob('feat/_box/*.npy')
 for i, f in enumerate(files):
     bb = np.load(f)
     flag = compute_iou(bb)
     # change the path where you would like to save the flag information
-    np.save(os.path.basename(f), flag) 
+    np.save('feat/flag/'+ os.path.basename(f), flag) 
     if i % 5000 == 0:
         print("{}/{}".format(i, len(files)))
