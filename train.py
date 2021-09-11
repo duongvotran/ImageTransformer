@@ -278,7 +278,7 @@ def train(opt):
                     # make evaluation on validation set, and save model
                     # TODO modify it to evaluate by each epoch
                     # ipdb.set_trace()
-                    if (iteration % opt.save_checkpoint_every == 0) and eval_ and epoch > 20:
+                    if (iteration % opt.save_checkpoint_every == 0) and eval_:
                         model_path = os.path.join(opt.checkpoint_path, 'model_itr%s.pth' % (iteration))
                         eval_kwargs = {'split': 'val',
                                        'dataset': opt.input_json,

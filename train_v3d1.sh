@@ -48,7 +48,7 @@ python train_h.py --id $id --refine_aoa $refine_aoa --caption_model $caption_mod
 	--name_append ""\
 	--checkpoint_path log/tmp/train_ours/log_refine_aoa_${id}_aoa${aoa_num}  \
 	$start_from \
-	--save_checkpoint_every 5000 \
+	--save_checkpoint_every 1000 \
 	--language_eval 1 \
 	--val_images_use -1 \
 	--max_epochs 30 \
