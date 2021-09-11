@@ -14,7 +14,7 @@ import time
 import os
 import sys
 import misc.utils as utils
-import ipdb
+#import ipdb
 from tqdm import tqdm
 
 bad_endings = ['a', 'an', 'the', 'in', 'for', 'at', 'of', 'with', 'before', 'after', 'on', 'upon', 'near', 'to', 'is', 'are', 'am']
@@ -31,11 +31,13 @@ def count_bad(sen):
 
 def language_eval(dataset, preds, model_id, split):
     import sys
-    sys.path.append("coco-caption")
+    sys.path.append("cococaption")
     if 'coco' in dataset:
-        annFile = 'coco-caption/annotations/captions_val2014.json'
+        annFile = 'cococaption/annotations/captions_val2014.json'
     elif 'flickr30k' in dataset or 'f30k' in dataset:
-        annFile = 'coco-caption/f30k_captions4eval.json'
+        annFile = 'cococaption/f30k_captions4eval.json'
+    elif 'viic' in dataset:
+        annFile = 'data/annotations/uitviic_captions_val2014.json'
     from pycocotools.coco import COCO
     from pycocoevalcap.eval import COCOEvalCap
 
@@ -92,7 +94,7 @@ def eval_split(model, crit, loader, eval_kwargs={}):
     num_images = eval_kwargs.get('num_images', eval_kwargs.get('val_images_use', -1))
     split = eval_kwargs.get('split', 'val')
     lang_eval = eval_kwargs.get('language_eval', 0)
-    dataset = eval_kwargs.get('dataset', 'coco')
+    dataset = eval_kwargs.get('dataset', 'viic')
     beam_size = eval_kwargs.get('beam_size', 1)
     remove_bad_endings = eval_kwargs.get('remove_bad_endings', 0)
     os.environ["REMOVE_BAD_ENDINGS"] = str(remove_bad_endings)  # Use this nasty way to make other code clean since it's a global configuration

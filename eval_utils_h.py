@@ -31,11 +31,13 @@ def count_bad(sen):
 
 def language_eval(dataset, preds, model_id, split):
     import sys
-    sys.path.append("coco-caption")
+    sys.path.append("cococaption")
     if 'coco' in dataset:
-        annFile = 'coco-caption/annotations/captions_val2014.json'
+        annFile = 'cococaption/annotations/captions_val2014.json'
     elif 'flickr30k' in dataset or 'f30k' in dataset:
-        annFile = 'coco-caption/f30k_captions4eval.json'
+        annFile = 'cococaption/f30k_captions4eval.json'
+    elif 'viic' in dataset:
+        annFile = 'data/annotations/uitviic_captions_val2014.json'
     from pycocotools.coco import COCO
     from pycocoevalcap.eval import COCOEvalCap
 

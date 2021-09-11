@@ -8,7 +8,7 @@ import numpy as np
 import time
 import os
 from six.moves import cPickle
-import ipdb
+#import ipdb
 import opts
 import models
 from dataloader import *
