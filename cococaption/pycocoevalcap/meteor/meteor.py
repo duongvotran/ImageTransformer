@@ -50,17 +50,17 @@ class Meteor:
 
     def _stat(self, hypothesis_str, reference_list):
         # SCORE ||| reference 1 words ||| reference n words ||| hypothesis words
-        hypothesis_str = hypothesis_str.replace('|||','').replace('  ',' ')
-        score_line = ' ||| '.join(('SCORE', ' ||| '.join(reference_list), hypothesis_str))
-        self.meteor_p.stdin.write('{}\n'.format(score_line))
+        hypothesis_str = hypothesis_str.replace(b'|||',b'').replace(b'  ',b' ')
+        score_line = b' ||| '.join((b'SCORE', b' ||| '.join(reference_list), hypothesis_str))
+        self.meteor_p.stdin.write(b'{}\n'.format(score_line))
         return self.meteor_p.stdout.readline().strip()
 
     def _score(self, hypothesis_str, reference_list):
         self.lock.acquire()
         # SCORE ||| reference 1 words ||| reference n words ||| hypothesis words
-        hypothesis_str = hypothesis_str.replace('|||','').replace('  ',' ')
-        score_line = ' ||| '.join(('SCORE', ' ||| '.join(reference_list), hypothesis_str))
-        self.meteor_p.stdin.write('{}\n'.format(score_line))
+        hypothesis_str = hypothesis_str.replace(b'|||',b'').replace(b'  ',b' ')
+        score_line = b' ||| '.join((b'SCORE', b' ||| '.join(reference_list), hypothesis_str))
+        self.meteor_p.stdin.write(b'{}\n'.format(score_line))
         stats = self.meteor_p.stdout.readline().strip()
         eval_line = 'EVAL ||| {}'.format(stats)
         # EVAL ||| stats 

@@ -318,7 +318,7 @@ def train(opt):
 
                     # make evaluation on validation set, and save model
                     # unnecessary to eval from the beginning 
-                    if (iteration % opt.save_checkpoint_every == 0) and eval_ and epoch > 3:
+                    if (iteration % opt.save_checkpoint_every == 0) and eval_:
                         # eval model
                         model_path = os.path.join(opt.checkpoint_path, 'model_itr%s.pth' % (iteration))
                         if opt.use_val and not opt.use_test:

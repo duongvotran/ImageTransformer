@@ -14,7 +14,7 @@ sys.path.append("cider")
 from pyciderevalcap.ciderD.ciderD import CiderD
 
 sys.path.append("cococaption")
-from pycocoevalcap.bleu.bleu import Bleu
+from pycocoevalcap.bleu.Bleu import Bleu
 
 CiderD_scorer = None
 Bleu_scorer = None

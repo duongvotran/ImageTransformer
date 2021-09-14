@@ -1,10 +1,12 @@
 __author__ = 'tylin'
+import sys
+sys.path.append('cococaption/pycocoevalcap')
 from tokenizer.ptbtokenizer import PTBTokenizer
-from bleu.bleu import Bleu
-from meteor.meteor import Meteor
-from rouge.rouge import Rouge
-from cider.cider import Cider
-from spice.spice import Spice
+from bleu.Bleu import Bleu
+from meteor.Meteor import Meteor
+from rouge.Rouge import Rouge
+from cider.Cider import Cider
+from spice.Spice import Spice
 
 class COCOEvalCap:
     def __init__(self, coco, cocoRes):

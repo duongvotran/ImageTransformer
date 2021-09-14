@@ -37,7 +37,7 @@ def language_eval(dataset, preds, model_id, split):
     elif 'flickr30k' in dataset or 'f30k' in dataset:
         annFile = 'cococaption/f30k_captions4eval.json'
     elif 'viic' in dataset:
-        annFile = 'data/annotations/uitviic_captions_val2014.json'
+        annFile = 'data/annotations/uitviic_captions_val2017.json'
     from pycocotools.coco import COCO
     from pycocoevalcap.eval import COCOEvalCap
 
@@ -55,8 +55,8 @@ def language_eval(dataset, preds, model_id, split):
     # json.dump(preds_filt, open(cache_path, 'w')) # serialize to temporary json file. Sigh, COCO API...
     cache_path = os.path.join('eval_results/single', model_id + '_' + split + '.json')
     # cache_path = os.path.join(save_to, model_id + '_' + split + '.json')
-    with open(cache_path, 'w') as f:
-        json.dump(preds_filt, f)
+    with open(cache_path, 'w', encoding='utf-8') as f:
+        json.dump(preds_filt, f, ensure_ascii=False)
     print("Write prediction results to {}".format(cache_path))
 
     cocoRes = coco.loadRes(cache_path)
@@ -76,8 +76,8 @@ def language_eval(dataset, preds, model_id, split):
 
     out['bad_count_rate'] = sum([count_bad(_['caption']) for _ in preds_filt]) / float(len(preds_filt))
     outfile_path = os.path.join('eval_results/single', model_id + '_' + split + '.json')
-    with open(outfile_path, 'w') as outfile:
-        json.dump({'overall': out, 'imgToEval': imgToEval, 'predCaption': preds_filt}, outfile)
+    with open(outfile_path, 'w', encoding='utf-8') as outfile:
+        json.dump({'overall': out, 'imgToEval': imgToEval, 'predCaption': preds_filt}, outfile, ensure_ascii=False)
     print("Write prediction results to {}".format(outfile_path))
     return out
 
